@@ -42,12 +42,31 @@ function start() {
     bear = new Bear();
     // Add an event listener to the keypress event.
     document.addEventListener("keydown", moveBear, false);
+    let bearS = document.getElementById('BearSpeed');
+    bearS.onchange = function(){
+        bear.setSpeed(bearS.value);
+    };
     //create new array for bees 
     bees = new Array(); 
     //create bees 
     makeBees();
     //update bees
     updateBees();
+
+    let beeNumber = document.getElementById('nbBees');
+    beeNumber.onchange = function(){
+        makeBees();
+    };
+
+    let beeSpeed = document.getElementById('speedBeees');
+    beeSpeed.onchange = function(){
+        moveBees();
+    };
+
+    let timeP = document.getElementById('periodTimer');
+    timeP.onchange = function(){
+        updateBees();
+    };
 }
 
 function moveBear(e) {
